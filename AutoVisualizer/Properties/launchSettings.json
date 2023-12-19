@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "AutoVisualizer": {
+      "commandName": "Executable",
+      "executablePath": "D:\\Program Files\\Rhino 7\\System\\Rhino.exe",
+      "commandLineArgs": ""
+    }
+  }
+}

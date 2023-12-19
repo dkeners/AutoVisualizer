@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34221.43
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoVisualizer", "AutoVisualizer\AutoVisualizer.csproj", "{96AAA167-C9F2-44EE-B8F3-99BB34680C2A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{96AAA167-C9F2-44EE-B8F3-99BB34680C2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96AAA167-C9F2-44EE-B8F3-99BB34680C2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96AAA167-C9F2-44EE-B8F3-99BB34680C2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96AAA167-C9F2-44EE-B8F3-99BB34680C2A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BF911EAB-A561-4BFE-A9B7-43D1A3D95A9F}
+	EndGlobalSection
+EndGlobal

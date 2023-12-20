@@ -2,11 +2,18 @@
 ## About
 AutoVisualizer is a plugin designed for Grasshopper, providing seamless integration with the Automatic1111 Stable Diffusion API. This powerful combination enables users to generate captivating images directly within the Grasshopper environment, harnessing the capabilities of the Automatic1111 API for stable diffusion processes.
 
-![Static Badge](https://img.shields.io/badge/-4.8-blue?logo=csharp) ![Static Badge](https://img.shields.io/badge/Build-v0.1.0-green)
+![Static Badge](https://img.shields.io/badge/Build-v0.1.0-green)
+![GitHub Release Date - Published_At](https://img.shields.io/github/release-date/dkeners/AutoVisualizer?label=Last%20release%20date%3A%20)
+ ![GitHub last commit (branch)](https://img.shields.io/github/last-commit/dkeners/AutoVisualizer/develop?label=Lastest%20Development:)
+
+ ![Static Badge](https://img.shields.io/badge/-4.8-blue?logo=csharp) 
 
 ## Main Components
 ### 1. SD_GenerateASync
 Can generate an image asynchronously given a prompt and negative prompt, with extra options if needed. Generate button to start another iteration.
+
+### 2. SD_GenerateSettings*
+A group of three components offering varying levels of control over final generation settings.
 
 ## Installation
 ### Dependencies
@@ -26,7 +33,7 @@ Can generate an image asynchronously given a prompt and negative prompt, with ex
 
       call webui.bat```
 ### AutoVisualizer
-AutoVisualizer can be installed by going to (Releases](https://github.com/dkeners/AutoVisualizer/releases) and downloading the version you would like.
+AutoVisualizer can be installed by going to [Releases](https://github.com/dkeners/AutoVisualizer/releases) and downloading the version you would like.
 1. In Grasshopper go to `File->Special Folders->Components Folder`
 2. Unzip the `AutoVisualizer-X-X-X.zip` assembly to the Grasshopper Plugin folder
 

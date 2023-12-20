@@ -23,21 +23,15 @@ namespace AutoVisualizer.Component.StableDiffusion
         /// </summary>
         protected override void RegisterInputParams(GH_InputParamManager pManager)
         {
-            Params.Input[
-                pManager.AddTextParameter("Prompt", "P", "Prompt for SD generation", GH_ParamAccess.item)
-                ].Optional = true;
-            Params.Input[pManager.AddTextParameter("Negative Prompt", "NP", "Negative Prompt for SD generation", GH_ParamAccess.item)].Optional = true;
-            Params.Input[
-                pManager.AddTextParameter("Styles", "St", "styles of the prompt", GH_ParamAccess.item)
-                ].Optional = true;
+            pManager.AddTextParameter("Prompt", "P", "Prompt for SD generation", GH_ParamAccess.item);
+            pManager.AddTextParameter("Negative Prompt", "NP", "Negative Prompt for SD generation", GH_ParamAccess.item);
+            pManager.AddTextParameter("Styles", "St", "styles of the prompt", GH_ParamAccess.item);
             pManager.AddNumberParameter("Seed", "S", "Seed used for generation", GH_ParamAccess.item, -1);
             pManager.AddNumberParameter("Subseed", "Ss", "Subseed used for generation", GH_ParamAccess.item, -1);
             pManager.AddNumberParameter("Subseed Strength", "Ss-s", "Strength of Subseed in generation", GH_ParamAccess.item, 0);
             pManager.AddNumberParameter("Seed resize from h", "Sr-h", "Get similar results as image with height h", GH_ParamAccess.item, -1);
             pManager.AddNumberParameter("Seed resize from w", "Sr-w", "Get similar results as image with height w", GH_ParamAccess.item, -1);
-            Params.Input[
-                pManager.AddTextParameter("Sampler Name", "SN", "Sampler to use for image generation", GH_ParamAccess.item, "Euler a")
-                ].Optional = true;
+            pManager.AddTextParameter("Sampler Name", "SN", "Sampler to use for image generation", GH_ParamAccess.item, "Euler a");
             // Add the remaining parameters
             pManager.AddIntegerParameter("batch_size", "BS", "Batch size", GH_ParamAccess.item, (int)1);
             pManager.AddIntegerParameter("n_iter", "NI", "Number of iterations", GH_ParamAccess.item, (int)1);
@@ -46,24 +40,23 @@ namespace AutoVisualizer.Component.StableDiffusion
             pManager.AddIntegerParameter("width", "W", "Image width", GH_ParamAccess.item, (int)512);
             pManager.AddIntegerParameter("height", "H", "Image height", GH_ParamAccess.item, (int)512);
             pManager.AddBooleanParameter("restore_faces", "RF", "Restore faces", GH_ParamAccess.item, true);
-            Params.Input[
-                pManager.AddTextParameter("tiling", "TL", "Tiling", GH_ParamAccess.item)
-                ].Optional = true;
+            pManager.AddTextParameter("tiling", "TL", "Tiling", GH_ParamAccess.item);
             pManager.AddBooleanParameter("do_not_save_samples", "DNSS", "Do not save samples", GH_ParamAccess.item, false);
             pManager.AddBooleanParameter("do_not_save_grid", "DNSG", "Do not save grid", GH_ParamAccess.item, false);
             pManager.AddNumberParameter("denoising_strength", "DS", "Denoising strength", GH_ParamAccess.item, (double)0);
-            Params.Input[
-                pManager.AddTextParameter("override_settings", "OS", "Override Settings", GH_ParamAccess.item)
-                ].Optional = true;
+            pManager.AddTextParameter("override_settings", "OS", "Override Settings", GH_ParamAccess.item);
             pManager.AddBooleanParameter("override_settings_restore_afterwards", "OSRA", "Override Settings Restore Afterwards", GH_ParamAccess.item, true);
             pManager.AddBooleanParameter("disable_extra_networks", "DEN", "Disable Extra Networks", GH_ParamAccess.item, false);
             pManager.AddBooleanParameter("enable_hr", "EHR", "Enable HR", GH_ParamAccess.item, false);
             pManager.AddNumberParameter("hr_scale", "HRS", "HR Scale", GH_ParamAccess.item, 2.0);
-            Params.Input[
-                pManager.AddTextParameter("sampler_index", "SI", "Sampler Index", GH_ParamAccess.item, "Euler")
-                ].Optional = true;
+            pManager.AddTextParameter("sampler_index", "SI", "Sampler Index", GH_ParamAccess.item, "Euler");
             pManager.AddBooleanParameter("send_images", "SI", "Send Images", GH_ParamAccess.item, true);
             pManager.AddBooleanParameter("save_images", "SvI", "Save Images", GH_ParamAccess.item, false);
+
+            for (int i = 0; i < Params.Input.Count; i++)
+            {
+                Params.Input[i].Optional = true;
+            }
         }
 
         /// <summary>

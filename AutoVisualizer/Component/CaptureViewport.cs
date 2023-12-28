@@ -31,6 +31,9 @@ namespace AutoVisualizer.Component
             // make this input optional
             pManager[0].Optional = true;
 
+            pManager.AddTextParameter("Options", "O", "Options for the capture.", GH_ParamAccess.item);
+            pManager[1].Optional = true;
+
             pManager.AddBooleanParameter("Capture", "C", "Capture the viewport. Use with normal button component.", GH_ParamAccess.item, false);
         }
 
@@ -84,7 +87,7 @@ namespace AutoVisualizer.Component
         protected override void SolveInstance(IGH_DataAccess DA)
         {
             bool buttonInput = false;
-            DA.GetData<bool>(1, ref buttonInput);
+            DA.GetData<bool>(2, ref buttonInput);
 
             if (buttonInput)
             {
@@ -95,6 +98,7 @@ namespace AutoVisualizer.Component
             {
                 _buttonCheck.Reset();
             }
+
             DA.GetData<string>(0, ref _imagePath);
             if (_imagePath == null)
             {
@@ -116,7 +120,20 @@ namespace AutoVisualizer.Component
                 return;
             }
 
-            System.Drawing.Bitmap image = view.CaptureToBitmap(true, true, true);
+            System.Drawing.Bitmap image;
+            string options = null;
+            DA.GetData<string>(1, ref options);
+
+            if (options != null)
+            {
+                dynamic optionsObj = Newtonsoft.Json.JsonConvert.DeserializeObject(options);
+                image = view.CaptureToBitmap((bool)optionsObj["grid"], (bool)optionsObj["worldAxes"], (bool)optionsObj["cplaneAxes"]);
+            }
+            else
+            {
+                image = view.CaptureToBitmap(true, true, true);
+            }
+            
 
             // Save the bitmap to a file.
             image.Save(_imagePath, System.Drawing.Imaging.ImageFormat.Png);

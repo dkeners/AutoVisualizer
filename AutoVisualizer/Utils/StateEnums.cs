@@ -14,4 +14,10 @@ namespace AutoVisualizer.Utils
         Completed,
         Failed
     }
+
+    enum ButtonState
+    {
+        Unclicked,
+        Clicked
+    }
 }

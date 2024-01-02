@@ -33,7 +33,8 @@ A group of three components offering varying levels of control over final genera
 
       git pull
 
-      call webui.bat```
+      call webui.bat
+      ```
 ### AutoVisualizer
 AutoVisualizer can be installed by going to [Releases](https://github.com/dkeners/AutoVisualizer/releases) and downloading the version you would like.
 1. In Grasshopper go to `File->Special Folders->Components Folder`

@@ -210,7 +210,7 @@ namespace AutoVisualizer.Component.StableDiffusion
                 script_args = scriptArgs,
                 send_images = sendImages,
                 save_images = saveImages,
-                alwayson_scripts = alwaysonScripts
+                alwayson_scripts = Newtonsoft.Json.JsonConvert.DeserializeObject(alwaysonScripts)
             };
 
             string dataOut = Newtonsoft.Json.JsonConvert.SerializeObject(parameters);

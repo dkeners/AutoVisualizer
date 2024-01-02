@@ -2,7 +2,7 @@
 ## About
 AutoVisualizer is a plugin designed for Grasshopper, providing seamless integration with the Automatic1111 Stable Diffusion API. This powerful combination enables users to generate captivating images directly within the Grasshopper environment, harnessing the capabilities of the Automatic1111 API for stable diffusion processes.
 
-![Static Badge](https://img.shields.io/badge/Build-v0.1.0-green)
+![Static Badge](https://img.shields.io/badge/Build-v0.2.0-green)
 ![GitHub Release Date - Published_At](https://img.shields.io/github/release-date/dkeners/AutoVisualizer?label=Last%20release%20date%3A%20)
  ![GitHub last commit (branch)](https://img.shields.io/github/last-commit/dkeners/AutoVisualizer/develop?label=Lastest%20Development:)
 
@@ -15,7 +15,13 @@ AutoVisualizer is a plugin designed for Grasshopper, providing seamless integrat
 Can generate an image asynchronously given a prompt and negative prompt, with extra options if needed. Generate button to start another iteration.
 
 ### 2. SD_GenerateSettings*
-A group of three components offering varying levels of control over final generation settings.
+A group of four components offering varying levels of control over final generation settings.
+
+### 3. CaptureViewport
+A way to capture the current active viewport, used with ControlNetRequest for influence.
+
+### 4. ControlNetRequest
+Allows for the user to make a control net instance based off a reference image and settings.
 
 ## Installation
 ### Dependencies

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using AutoVisualizer.Utils;
 using Grasshopper.Kernel;
 using Rhino.Geometry;
@@ -13,8 +14,8 @@ namespace AutoVisualizer.Component.StableDiffusion
         private string prompt = "";
         private string negPrompt = "";
         private dynamic request_data;
-        private string outputPath = "";
-        private Image image = null;
+        private List<string> outputPath = new List<string>();
+        private List<Image> image = new List<Image>();
 
         /// <summary>
         /// Initializes a new instance of the MyComponent1 class.
@@ -43,7 +44,7 @@ namespace AutoVisualizer.Component.StableDiffusion
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
             pManager.AddTextParameter("Path", "P", "Output path of tmp image file", GH_ParamAccess.list);
-            pManager.AddGenericParameter("Image", "I", "A bitmap object", GH_ParamAccess.item);
+            pManager.AddGenericParameter("Image", "I", "A bitmap object", GH_ParamAccess.list);
         }
 
         /// <summary>
@@ -80,8 +81,21 @@ namespace AutoVisualizer.Component.StableDiffusion
                         currentState = RequestState.Ready;
                         break;
                 }
-                DA.SetData(0, this.outputPath);
-                DA.SetData(1, this.image);
+                if (this.outputPath.Count > 1)
+                {
+                    DA.SetDataList(0, this.outputPath);
+                    DA.SetDataList(1, this.image);
+                }
+                else if (this.outputPath.Count == 1)
+                {
+                    DA.SetData(0, this.outputPath[0]);
+                    DA.SetData(1, this.image[0]);
+                }
+                else
+                {
+                    DA.SetData(0, "");
+                    DA.SetData(1, null);
+                }
                 shouldExpire = false;
 
                 return;
@@ -151,7 +165,7 @@ namespace AutoVisualizer.Component.StableDiffusion
                 //var length = responseJSON.Length;
                 var images = responseJSON["images"];
 
-                if (images.Count > 0)
+                if (images.Count == 1)
                 {
                     string base64ImageData = images[0].ToString();
 
@@ -160,9 +174,9 @@ namespace AutoVisualizer.Component.StableDiffusion
                         byte[] imageBytes = Convert.FromBase64String(base64ImageData);
                         using (MemoryStream stream = new MemoryStream(imageBytes))
                         {
-                            this.image = Image.FromStream(stream);
-                            this.outputPath = "C:\\tmp\\output.png";
-                            this.image.Save(outputPath);
+                            this.image.Add(Image.FromStream(stream));
+                            this.outputPath.Add("C:\\tmp\\output.png");
+                            this.image[0].Save(outputPath[0]);
 
                             //DA.SetData(0, outputPath);
                             //AddRuntimeMessage(GH_RuntimeMessageLevel.Remark, $"Image saved to {outputPath}");
@@ -177,6 +191,25 @@ namespace AutoVisualizer.Component.StableDiffusion
                         message = "No image data in response.";
                         currentState = RequestState.Failed;
                         UpdateMessage(message);
+                    }
+                }
+                else if (images.Count > 1)
+                {
+                    for (int i = 0; i < images.Count; i++)
+                    {
+                        byte[] imageBytes = Convert.FromBase64String(images[i].ToString());
+                        using (MemoryStream stream = new MemoryStream(imageBytes))
+                        {
+                            this.image.Add(Image.FromStream(stream));
+                            this.outputPath.Add("C:\\tmp\\output" + i + ".png");
+                            this.image[i].Save(outputPath[i]);
+
+                            //DA.SetData(0, outputPath);
+                            //AddRuntimeMessage(GH_RuntimeMessageLevel.Remark, $"Image saved to {outputPath}");
+
+                            //message = "Image generated!";
+                            //UpdateMessage(message);
+                        }
                     }
                 }
                 else

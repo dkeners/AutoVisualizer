@@ -83,6 +83,16 @@ namespace AutoVisualizer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ControlNetRequest {
+            get {
+                object obj = ResourceManager.GetObject("ControlNetRequest", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap SDGenerateASync {
             get {
                 object obj = ResourceManager.GetObject("SDGenerateASync", resourceCulture);

@@ -100,6 +100,9 @@ namespace AutoVisualizer.Component.StableDiffusion
 
                 return;
             }
+            
+            outputPath = new List<string>();
+            image = new List<Image>();
 
             //CollectData();
             //Attributes.InvalidateCanvas();

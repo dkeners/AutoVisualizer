@@ -9,12 +9,12 @@ using Rhino.Geometry;
 
 namespace AutoVisualizer.Component.StableDiffusion.ControlNet
 {
-    public class ControlNetRequest : GH_Component
+    public class GHC_CN_ControlNetRequest : GH_Component
     {
         /// <summary>
         /// Initializes a new instance of the ControlNetRequest class.
         /// </summary>
-        public ControlNetRequest()
+        public GHC_CN_ControlNetRequest()
           : base("ControlNetRequest", "CtrlNet",
               "Creates ControlNet request JSON for the \"alwayson_scripts\" generation settings",
               "AutoVisualizer", "ControlNet")

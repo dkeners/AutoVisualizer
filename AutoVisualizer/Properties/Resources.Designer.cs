@@ -63,6 +63,36 @@ namespace AutoVisualizer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap CaptureOptions {
+            get {
+                object obj = ResourceManager.GetObject("CaptureOptions", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CaptureViewport {
+            get {
+                object obj = ResourceManager.GetObject("CaptureViewport", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ControlNetRequest {
+            get {
+                object obj = ResourceManager.GetObject("ControlNetRequest", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap SDGenerateASync {
             get {
                 object obj = ResourceManager.GetObject("SDGenerateASync", resourceCulture);
@@ -86,6 +116,16 @@ namespace AutoVisualizer.Properties {
         internal static System.Drawing.Bitmap SDGenerateOptions_Basic {
             get {
                 object obj = ResourceManager.GetObject("SDGenerateOptions_Basic", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SDGenerateOptions_ControlNet {
+            get {
+                object obj = ResourceManager.GetObject("SDGenerateOptions_ControlNet", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -11,17 +11,40 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Image viewer from bitmap component
 - Image viewer from path component
-- Version viewer component
+- CaptureView compnent
+- AutoVisualizer Version component
 - Change IP address component
-- controlnet model options component
-- contolnet settings component
-- other controlnet components
-- SD model options component
+- ControlNet Version component
+- ControlNet model_list component
+- ControlNet module_list component
+- ControlNet control_types component
 
 ### Fixed
 
 - Fixed bugs
-  
+
+
+## [0.2.0] - 2024-01-02
+
+### Added
+
+- CaptureViewport component
+- CaptureOptions component
+- ControlNet request component
+- ContolNet to Stable Diffusion options component
+
+### Changed
+
+- Async and Sync SD_Generate to allow for multi-image output
+
+### Removed
+
+- Toplevel AutoVizualizerComponent that was an unused component
+
+### Fixed
+
+- Input alwayson_scripts in SD_GenerateOptions_Full to correctly convert string JSON data
+
 
 ## [0.1.0] - 2023-12-20
 

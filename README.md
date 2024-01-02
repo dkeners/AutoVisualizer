@@ -2,7 +2,7 @@
 ## About
 AutoVisualizer is a plugin designed for Grasshopper, providing seamless integration with the Automatic1111 Stable Diffusion API. This powerful combination enables users to generate captivating images directly within the Grasshopper environment, harnessing the capabilities of the Automatic1111 API for stable diffusion processes.
 
-![Static Badge](https://img.shields.io/badge/Build-v0.1.0-green)
+![Static Badge](https://img.shields.io/badge/Build-v0.2.0-green)
 ![GitHub Release Date - Published_At](https://img.shields.io/github/release-date/dkeners/AutoVisualizer?label=Last%20release%20date%3A%20)
  ![GitHub last commit (branch)](https://img.shields.io/github/last-commit/dkeners/AutoVisualizer/develop?label=Lastest%20Development:)
 
@@ -15,14 +15,21 @@ AutoVisualizer is a plugin designed for Grasshopper, providing seamless integrat
 Can generate an image asynchronously given a prompt and negative prompt, with extra options if needed. Generate button to start another iteration.
 
 ### 2. SD_GenerateSettings*
-A group of three components offering varying levels of control over final generation settings.
+A group of four components offering varying levels of control over final generation settings.
+
+### 3. CaptureViewport
+A way to capture the current active viewport, used with ControlNetRequest for influence.
+
+### 4. ControlNetRequest
+Allows for the user to make a control net instance based off a reference image and settings.
 
 ## Installation
 ### Dependencies
 1. Install [Automatic1111](https://github.com/AUTOMATIC1111/stable-diffusion-webui#) locally.
-2. Run the new install of Automatic1111 in API mode with one of the methods below:
-    - Run Automatic1111 from command line with the argument `--api`
-    - Create a new script `webui-api.bat`
+    1. If using ControlNet components install ControlNet for [Automatic1111](https://github.com/Mikubill/sd-webui-controlnet?tab=readme-ov-file#installation)
+3. Run the new install of Automatic1111 in API mode with one of the methods below:
+    1. Run Automatic1111 from command line with the argument `--api`
+    2. Create a new script `webui-api.bat`
       ```webui-api.bat
       @echo off
 
@@ -33,7 +40,8 @@ A group of three components offering varying levels of control over final genera
 
       git pull
 
-      call webui.bat```
+      call webui.bat
+      ```
 ### AutoVisualizer
 AutoVisualizer can be installed by going to [Releases](https://github.com/dkeners/AutoVisualizer/releases) and downloading the version you would like.
 1. In Grasshopper go to `File->Special Folders->Components Folder`
@@ -49,6 +57,9 @@ The one important configuration is the IP that the API is located at. Please tak
 - If no images are generated check the following:
   - Make sure that Automatic1111 is running with the `--api` argument.
   - Check the IP that Automatic1111 is running on, default is `http://127.0.0.1:7860`, if it is different update it using the Address component.
+- If ControlNet is not working check the following:
+  - Make sure ControlNet is installed, check the version is "2" using the *future* component ControlNet_Version.
+  - Make sure [ControlNet models](https://huggingface.co/lllyasviel/ControlNet) are downloaded.
 - Currently both prompt and negative prompt need inputs to run.
 
 ## License

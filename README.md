@@ -26,9 +26,10 @@ Allows for the user to make a control net instance based off a reference image a
 ## Installation
 ### Dependencies
 1. Install [Automatic1111](https://github.com/AUTOMATIC1111/stable-diffusion-webui#) locally.
-2. Run the new install of Automatic1111 in API mode with one of the methods below:
-    - Run Automatic1111 from command line with the argument `--api`
-    - Create a new script `webui-api.bat`
+    1. If using ControlNet components install ControlNet for [Automatic1111](https://github.com/Mikubill/sd-webui-controlnet?tab=readme-ov-file#installation)
+3. Run the new install of Automatic1111 in API mode with one of the methods below:
+    1. Run Automatic1111 from command line with the argument `--api`
+    2. Create a new script `webui-api.bat`
       ```webui-api.bat
       @echo off
 
@@ -56,6 +57,9 @@ The one important configuration is the IP that the API is located at. Please tak
 - If no images are generated check the following:
   - Make sure that Automatic1111 is running with the `--api` argument.
   - Check the IP that Automatic1111 is running on, default is `http://127.0.0.1:7860`, if it is different update it using the Address component.
+- If ControlNet is not working check the following:
+  - Make sure ControlNet is installed, check the version is "2" using the *future* component ControlNet_Version.
+  - Make sure [ControlNet models](https://huggingface.co/lllyasviel/ControlNet) are downloaded.
 - Currently both prompt and negative prompt need inputs to run.
 
 ## License

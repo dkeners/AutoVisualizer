@@ -9,6 +9,8 @@ AutoVisualizer is a plugin designed for Grasshopper, providing seamless integrat
  ![Static Badge](https://img.shields.io/badge/-4.8-blue?logo=csharp) ![Static Badge](https://img.shields.io/badge/--%23512BD4?logo=dotnet)
  ![Static Badge](https://img.shields.io/badge/-Rhino%207-black?logo=rhinoceros)
 
+![GenerateASync](https://github.com/dkeners/AutoVisualizer/assets/25158625/89951fc9-8f7e-41d9-ac47-ad569fa40aff)
+
 
 ## Main Components
 ### 1. SD_GenerateASync
